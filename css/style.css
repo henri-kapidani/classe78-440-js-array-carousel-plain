@@ -57,3 +57,7 @@ body {
 .active {
 	display: block;
 }
+
+.hidden {
+	visibility: hidden;
+}

@@ -30,35 +30,33 @@ let activeIndex = 0;
 
 // aggiungere gli event listeners ai due bottoni
 eleBtnRight.addEventListener('click', function () {
-	if (activeIndex < listEleImg.length - 1) {
-		eleBtnLeft.style.visibility = 'visible';
+	// togliere la classe active dall'elemento attivo corrente
+	listEleImg[activeIndex].classList.remove('active');
 
-		// togliere la classe active dall'elemento attivo corrente
-		listEleImg[activeIndex].classList.remove('active');
+	// incrementare l'active index
+	activeIndex++;
 
-		// incrementare l'active index
-		activeIndex++;
+	// aggiungere la classe active all'elemento successivo
+	listEleImg[activeIndex].classList.add('active');
 
-		// aggiungere la classe active all'elemento successivo
-		listEleImg[activeIndex].classList.add('active');
-	} else {
-		eleBtnRight.style.visibility = 'hidden';
+	eleBtnLeft.classList.remove('hidden');
+	if (activeIndex === listEleImg.length - 1) {
+		eleBtnRight.classList.add('hidden');
 	}
 });
 
 eleBtnLeft.addEventListener('click', function () {
-	if (activeIndex > 0) {
-		eleBtnRight.style.visibility = 'visible';
+	// togliere la classe active dall'elemento attivo corrente
+	listEleImg[activeIndex].classList.remove('active');
 
-		// togliere la classe active dall'elemento attivo corrente
-		listEleImg[activeIndex].classList.remove('active');
+	// incrementare l'active index
+	activeIndex--;
 
-		// incrementare l'active index
-		activeIndex--;
+	// aggiungere la classe active all'elemento successivo
+	listEleImg[activeIndex].classList.add('active');
 
-		// aggiungere la classe active all'elemento successivo
-		listEleImg[activeIndex].classList.add('active');
-	} else {
-		eleBtnLeft.style.visibility = 'hidden';
+	eleBtnRight.classList.remove('hidden');
+	if (activeIndex === 0) {
+		eleBtnLeft.classList.add('hidden');
 	}
 });
